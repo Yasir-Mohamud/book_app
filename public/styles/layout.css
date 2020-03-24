@@ -1,0 +1,23 @@
+
+header section:first-child {
+  border: solid 2px green;
+  text-align: center;
+  width:100%;
+
+}
+
+header section:last-child {
+  border: solid 2px black;
+  text-align: center;
+  width:100%;
+
+  margin-bottom: 2rem;
+}
+
+section div:first-child{
+border: solid 2px red;
+}
+
+section div:last-child{
+  border: solid 2px blue;
+  }
