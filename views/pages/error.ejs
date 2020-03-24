@@ -1,0 +1,17 @@
+'use strict';
+
+function error (err, request, response, next) { 
+  if (response.headersSent) {  
+    return next(err) 
+    }  
+    response.status(500).send({ status: 500, responseText: 'Sorry, something went wrong' })  
+    response.send({ status: 500, responseText: 'Sorry, something went wrong' 
+    })
+  }
+
+
+
+
+     app.get('*',(request,response)=>{
+         response.status(500).send('I could not find the page you are looking for');
+        });
