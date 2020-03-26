@@ -14,7 +14,13 @@ app.use(express.urlencoded({extended:true}));
 // serve my static files from my public directory
 app.use(express.static('./public'));
 
-app.get('/bananas' , (request,response) => {
+
+app.get('/' , (request,response) => {
+  response.render('pages/index.ejs')
+})
+
+
+app.get('/searches/new' , (request,response) => {
   response.render('pages/searches/new.ejs')
 })
 
@@ -35,7 +41,7 @@ app.post('/searches' , (request,response) => {
       let finalBookArr = bookArr.map(book => {
         return new Book (book.volumeInfo, book.imageLinks);
       })
-      response.send(finalBookArr.slice(0,10));
+      response.render('./pages/searches/show.ejs', { books :finalBookArr.slice(0,10)});
     })
 
 })
@@ -43,17 +49,15 @@ app.post('/searches' , (request,response) => {
 ////// google api book ///////
 
 function Book (obj) {
-  this.img = 
-  this.authors = obj.authors;
-  this.title = obj.title;
-  this.description = obj.description;
+  this.img = (obj.imageLinks.smallThumbnail) ? obj.imageLinks.thumbnail :`https://via.placeholder.com/150`;
+  this.authors = (obj.authors[0]) ? obj.authors[0]:'no author found';
+  this.title = (obj.title) ? obj.title:'no title found';
+  this.description = (obj.description) ? obj.description:'no description found';
 
 }
 
 
-app.get('/' , (request,response) => {
-  response.render('pages/index.ejs')
-})
+
 
 app.listen( PORT, () => {
   console.log(`listening on port ${PORT}`);

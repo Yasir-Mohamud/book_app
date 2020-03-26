@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/modules.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/icons.css">
     <title>Book Collection</title>
   </head>
   <body>
-    <main>
-      <h4>Search by Title or Author</h4>
+    <section id="sec2">
+      <div class="header1"> BEST BOOKS</div>
+      <div class="header2"><h4>Search by Title or Author</h4></div>
+      <div id="searchBooks">
       <form action="/searches" method="post">
-        <input type="text" name="search" placeholder="Enter a title or author" required>
-        <fieldset>
+       <div id="search"> <input id="search" type="text" name="search" placeholder="Enter a title or author" required></div> 
+       
+       <div id="new-title">
+       <fieldset>
           <label for="title">
             <span>Title</span>
             <input type="radio" name="search" value="title" required>
           </label>
         </fieldset>
-        <fieldset>
-          <label for="author">
-            <span>Author</span>
-            <input type="radio" name="search" value="author" required>
-          </label>
-        </fieldset>
-        <button type="submit">Search the Google Books API</button>
+        </div>
+        <div id="new-author">
+          <fieldset>
+            <label for="author">
+              <span>Author</span>
+              <input type="radio" name="search" value="author" required>
+            </label>
+          </fieldset>
+        </div>
+        
+       <div><button type="submit">Search the Google Books API</button></div> 
       </form>
-    </main>
+      </div>
+      <div id="new-footer"> FOOTER</div>
+    </section>
   </body>
 </html>
