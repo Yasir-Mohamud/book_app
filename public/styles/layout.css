@@ -60,14 +60,14 @@ color: black;
   margin-top: 1rem;
 }
 
-#form {
+/* #form {
   border: 5px solid white;
   grid-column: 1/4;
   display: grid;
   grid-template-columns: 400px;
   grid-template-rows: 50px 50px 50px;
   align-items:top ;
-}
+} */
 
 #search {
 
