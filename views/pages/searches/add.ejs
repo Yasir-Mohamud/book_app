@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/modules.css">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/icons.css">
 </head>
 <body>
-  <section>
+  <section class="sec2">
  
     <% selected.forEach( select => { %>
       
-       <div class="books">
+       <div class="addbooks">
         <form action="/books" method="post">
-        <div id="images"> <%= select.image_url %></div> 
-         <div id="title">  <h2><%= select.title %> </h2> </div>
-         <div id="authors"> <h4><%= select.authors %></h4> </div>
-         <div id="isbn"> <h4><%= select.isbn %></h4> </div>
-         <div id="description"> 
+        <div id="addimages"> <h2> <%= select.image_url %> </h2></div> 
+         <div id="addtitle">  <h2><%= select.title %> </h2> </div>
+         <div id="addauthors"> <h4><%= select.authors %></h4> </div>
+         <div id="addisbn"> <h4><%= select.isbn %></h4> </div>
+         <div id="adddescription"> 
           <p> <%= select.description %> </p>
         </div>
         <div id="bookshelf"> <input id="search" type="text" name="bookshelf" placeholder="Enter a bookshelf" required></div> 
@@ -33,5 +38,6 @@
     
   </section>
   
+ <%- include('../../layout/footer.ejs') %>
 </body>
 </html>

@@ -12,11 +12,29 @@
 
 }
 
+
+.sec2 {
+  margin:auto;
+  align-self: center;
+  border: solid 3px burlywood;
+  background-color: rgba(128, 128, 128, 0.582);
+  color:white;
+  max-width: 480px;
+  height:100%;
+  display:grid;
+  grid-template-columns: 40px 400px 40px;
+  grid-template-rows: 75px 75px  700px  80px;
+
+}
+
 .header1 {
   border-bottom: solid 2px burlywood;
   background-color: darkolivegreen;
   grid-column: 1/8;
   grid-row: 1/2; 
+  text-align:center;
+  line-height: 75px;
+  font-size: 24pt;
 }
 
 
@@ -25,6 +43,9 @@
   background-color: darkolivegreen;
   grid-column: 1/8;
   grid-row: 2/3;
+  text-align:center;
+  line-height: 75px;
+  font-size: 24pt;
 }
 
 .books {
@@ -36,4 +57,21 @@
   margin-top: 1rem;
   justify-content: center;
   align-items: center;
+}
+
+.addbooks {
+  grid-column: 2/3;
+  grid-row:  2/4;
+  margin-bottom: 2rem;
+  margin-top: -2rem;
+}
+
+.button {
+  width:30%;
+  float: right;
+  
+}
+
+.button:hover {
+  background-color: white;
 }

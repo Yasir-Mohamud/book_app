@@ -1,3 +1,4 @@
+
 /* show ejs */
 
 
@@ -6,6 +7,7 @@
   margin-top: 1rem;
    margin-left: 9rem; 
   margin-right: 9rem; 
+  margin-bottom: 1rem;
 }
 
 #images img {
@@ -13,33 +15,69 @@
 }
 
 #title {
+  border: darkolivegreen 3px solid;
   color: black;
- text-align: center;
  grid-column: 3/5; 
+ text-align: center;
+ height:75px;
+ line-height: 75px;
+ margin-bottom: 1rem;
+margin-left: 2rem;
+margin-right: 2rem;
 }
-#author {
+#authors {
+  border: darkolivegreen 3px solid;
   color: black;
-  text-align: center;
   grid-column: 3/5;
+  text-align: center;
+  height:75px;
+  line-height: 75px;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+margin-right: 2rem;
+}
+#isbn h4 {
+  color: transparent;
 }
 #description {
+  border: darkolivegreen 3px solid;
 color: black;
   margin-left: 1rem;
   margin-right: 1rem;
   grid-column: 4/5;
-  height: 150px;
+  text-align: center;
+  
+  line-height: 20px;
+  height: 120px;
   overflow-y:scroll;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+margin-right: 2rem;
 }
+#searchbutton {
 
-#footer {
-  border-top:solid 2px burlywood;
+  height:40px;
+}
+/* footer{
+  position: relative;
+  
+
+  
+} */
+footer div{
+  max-width:480px;
+  border:solid 5px burlywood;
   background-color: darkolivegreen;
-  grid-column: 1/8;
+ position: absolute;
+ margin-left:30rem;
+ width:100%;
+ height:50px;
+ 
 }
 
 
 /* new ejs */
-#sec2 {
+/* #sec2 {
   margin:auto;
   align-self: center;
   border: solid 3px burlywood;
@@ -51,7 +89,7 @@ color: black;
   grid-template-columns: 40px 400px 40px;
   grid-template-rows: 75px 75px  700px  80px;
 
-}
+} */
 
 #searchBooks {
   grid-column: 2/3;
@@ -112,4 +150,138 @@ button {
   background-color: darkolivegreen;
   grid-column: 1/4;
   grid-row: 4/5;
+}
+
+
+
+
+/* add ejs */
+
+#addimages{
+  border: solid 2px white;
+ margin-bottom: 2rem;
+ border: darkolivegreen solid 3px;
+ background-color: burlywood;
+ color: black;
+ text-align: center;
+ height:75px;
+overflow-y: visible;
+}
+#addimages h2{
+  width: 100%;
+  overflow-x: scroll;
+ 
+}
+
+#addauthors{
+  border: solid 2px white;
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  text-align: center;
+  height:75px;
+  line-height: 75px;
+}
+#addisbn{
+  border: solid 2px white;
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  text-align: center;
+  height:75px;
+  line-height: 75px;
+}
+#adddescription{
+  border: solid 2px white;
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  height:100px;
+  overflow-y:scroll;
+}
+#addtitle{
+  border: solid 2px white;
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  text-align: center;
+  height:75px;
+  line-height: normal;
+  overflow-y: scroll;
+}
+
+#addtitle h2 {
+margin-top: 1rem;
+}
+
+
+    /* detail ejs */
+
+
+
+#detailimages{
+  
+  margin-top: 3rem;
+  border:solid 3px darkolivegreen;
+  margin-left: 8rem; 
+  margin-right: 8rem;
+  margin-bottom: 1rem;
+ 
+}
+#detailimages img{
+  width: 100%;
+ 
+}
+
+
+#detailtitle{
+
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  text-align: center;
+  height:75px;
+  line-height: normal;
+  overflow-y: scroll;
+}
+#detailauthors{
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  text-align: center;
+  height:75px;
+  line-height: 75px;
+}
+#detailisbn{
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  text-align: center;
+  height:75px;
+  line-height: 75px;
+}
+#detaildescription{
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  height:100px;
+  overflow-y:scroll;
+}
+#detailbookshelf{
+ 
+  margin-bottom: 2rem;
+  border: darkolivegreen solid 3px;
+  background-color: burlywood;
+  color: black;
+  text-align: center;
+  height:40px;
+  line-height: 40px;
 }

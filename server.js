@@ -19,6 +19,13 @@ app.use(express.static('./public'));
 
 
 app.get('/' , renderHomePage) ;
+app.get('/searches/new' , renderSearchPage)
+app.post('/searches' , renderSearchBooksPage)
+app.post('/add', renderAddPage)
+app.post('/books', saveToDatabase)
+app.get('/books/:id' , renderDetailsPage)
+
+
 
 function renderHomePage(request, response){
 
@@ -39,12 +46,11 @@ function renderHomePage(request, response){
 
 
 
-app.get('/searches/new' , (request,response) => {
+function renderSearchPage (request,response){
   response.render('pages/searches/new.ejs')
-})
+}
 
-app.post('/searches' , (request,response) => {
-  // console.log('hello',request.body);
+function renderSearchBooksPage (request,response) {
   let searchItem = request.body.search[0];
   let titleorauthor = request.body.search[1];
   let url  = 'https://www.googleapis.com/books/v1/volumes?q=';
@@ -66,7 +72,7 @@ app.post('/searches' , (request,response) => {
       response.render('./pages/searches/show.ejs', { books :finalBookArr.slice(0,10)});
     })
 
-})
+}
 
 ////// google api book ///////
 // ? obj.imageLinks.thumbnail :`https://via.placeholder.com/150`;
@@ -78,16 +84,16 @@ function Book (obj) {
   this.isbn = obj.industryIdentifiers[0].identifier;
 }
 
-app.post('/add', (request,response) => {
+function renderAddPage(request,response) {
 /// saves the books to the database
-  let newArr = []
+  let newArr = [];
   let book = request.body;
   newArr.push(book)
 
   response.render('./pages/searches/add.ejs', { selected :newArr});
-})
+}
 
-app.post('/books', (request,response) => {
+function saveToDatabase(request,response) {
   let{title,authors,isbn,image_url,description,bookshelf} = request.body;
   let sql = 'INSERT INTO books (title ,authors, isbn ,image_url ,description, bookshelf) VALUES ($1,$2,$3,$4,$5,$6) RETURNING id;';
   let safeValues = [title,authors,isbn,image_url,description,bookshelf];
@@ -96,10 +102,10 @@ app.post('/books', (request,response) => {
       let id = results.rows[0].id;
       response.redirect(`/books/${id}`)
     })
-})
+}
 
 
-app.get('/books/:id' , (request , response) => {
+function renderDetailsPage(request , response) {
   let bookID = request.params.id;
   let sql = 'SELECT * FROM books WHERE id=$1;'
   let safeValues = [bookID];
@@ -107,12 +113,27 @@ app.get('/books/:id' , (request , response) => {
     .then (results => {
       let selectedBook = results.rows;
       response.render('./pages/books/show.ejs' , {oneBook : selectedBook})
+    })
+}
 
+
+
+app.post('/updateBook' , (request,response) => {
+  console.log('update',request.body)
+  let {id } = request.body;
+  let sqlBook = 'SELECT * FROM books WHERE id=$1;';
+  let safeValues = [id];
+  client.query(sqlBook,safeValues)
+    .then(resultsSqlBook =>{
+      let sqlBookShelf = 'SELECT DISTINCT bookShelf FROM books;';
+      client.query(sqlBookShelf)
+        .then(resultSqlBookShelf => {
+          console.log('results',resultsSqlBook.rows)
+          response.render('pages/books/edit.ejs',({books : resultsSqlBook.rows, bookShelf : resultSqlBookShelf.rows }));
+        })
     })
 
-
 })
-
 
 client.connect()
   .then (() => {

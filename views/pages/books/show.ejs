@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/modules.css">
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/icons.css">
-  <title>Document</title>
+  <%- include('../../layout/head.ejs') %>
 </head>
 <body>
   
-  <section class="sec">
+  <section class="sec2">
     <button><a href="/">HOME</a></button>
-  <div class="header1"> BEST BOOKS</div>
-  <div class="header2">SEARCH RESULTS</div>
+  <div class="header1"> BEST BOOKS
+    <button class="button"><a href="/">HOME</a></button>
+  </div>
+ 
   
 
 
 <%- include('details.ejs' , {oneBook : oneBook}) %>
-  <div id=footer> </div>
+  <!-- <div id=footer> </div> -->
 
 </section>
 </body>

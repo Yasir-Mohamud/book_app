@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/modules.css">
   <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/icons.css"> -->
+  <link rel="stylesheet" href="styles/icons.css">
   <title>Document</title>
 </head>
 <body>
   
   <section class="sec">
-  <div class="header1"> BEST BOOKS</div>
+   
+  <div class="header1"> BEST BOOKS
+    <button class="button"><a href="/searches/new">SEARCH BOOKS</a></button>
+  </div>
   <div class="header2"> HOME </div>
   
 
@@ -21,17 +24,15 @@
    <div class="books">
     <div id="images"><img src=" <%= book.image_url %>" /></div> 
      <div id="title">  <h2><%= book.title %> </h2> </div>
-     <div id="author"> <h4><%= book.authors %></h4> </div>
+     <div id="authors"> <h4><%= book.authors %></h4> </div>
     <form action="/books" method="post">
      <button><a href="/books/<%= book.id %>">VIEW DETAILS</a></button>
-    </form>
-
-  
+    </form>  
   </div> 
  <% }) %>
 
-  <div id=footer> </div>
-
+ <footer > <div> helllo im the div</div></footer>
 </section>
+<%- include('../layout/footer.ejs') %>
 </body>
 </html>

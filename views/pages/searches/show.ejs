@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/modules.css">
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/icons.css">
-  <title>Document</title>
+  <%- include('../../layout/head.ejs') %>
 </head>
 <body>
   
@@ -34,15 +27,14 @@
     <input type="hidden" name="isbn" value="<%= book.isbn %>" />
      <input type="hidden" name="image_url" value="<%= book.image_url %>" />
       <input type="hidden" name="description" value="<%= book.description %>" />
-      <button type="submit" name="select">Select This Book</button>
+      <button id="searchbutton" type="submit" name="select">Select This Book</button>
     </form>
 
   
   </div> 
  <% }) %>
-
-  <div id=footer> </div>
-
 </section>
+
+<%- include('../../layout/footer.ejs') %>
 </body>
 </html>
