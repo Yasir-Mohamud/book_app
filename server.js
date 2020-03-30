@@ -118,22 +118,7 @@ function renderDetailsPage(request , response) {
 
 
 
-app.post('/updateBook' , (request,response) => {
-  console.log('update',request.body)
-  let {id } = request.body;
-  let sqlBook = 'SELECT * FROM books WHERE id=$1;';
-  let safeValues = [id];
-  client.query(sqlBook,safeValues)
-    .then(resultsSqlBook =>{
-      let sqlBookShelf = 'SELECT DISTINCT bookShelf FROM books;';
-      client.query(sqlBookShelf)
-        .then(resultSqlBookShelf => {
-          console.log('results',resultsSqlBook.rows)
-          response.render('pages/books/edit.ejs',({books : resultsSqlBook.rows, bookShelf : resultSqlBookShelf.rows }));
-        })
-    })
 
-})
 
 client.connect()
   .then (() => {
