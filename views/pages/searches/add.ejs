@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/modules.css">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/icons.css">
+</head>
+<body>
+  <section class="sec2">
+ 
+    <% selected.forEach( select => { %>
+      
+       <div class="addbooks">
+        <form action="/books" method="post">
+        <div id="addimages"> <h2> <%= select.image_url %> </h2></div> 
+         <div id="addtitle">  <h2><%= select.title %> </h2> </div>
+         <div id="addauthors"> <h4><%= select.authors %></h4> </div>
+         <div id="addisbn"> <h4><%= select.isbn %></h4> </div>
+         <div id="adddescription"> 
+          <p> <%= select.description %> </p>
+        </div>
+        <div id="bookshelf"> <input id="search" type="text" name="bookshelf" placeholder="Enter a bookshelf" required></div> 
+       
+        <input type="hidden" name="title" value="<%= select.title %>" />
+        <input type="hidden" name="authors" value="<%= select.authors %>" />
+        <input type="hidden" name="isbn" value="<%= select.isbn %>" />
+         <input type="hidden" name="image_url" value="<%= select.image_url %>" />
+          <input type="hidden" name="description" value="<%= select.description %>" />
+          <button type="submit" name="select">Add to Database</button>
+        </form>
+      </div> 
+      <% }) %>
+    
+  </section>
+  
+ <%- include('../../layout/footer.ejs') %>
+</body>
+</html>
